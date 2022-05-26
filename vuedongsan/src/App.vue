@@ -5,9 +5,14 @@
 
     <!-- nav bar -->
     <NavBar />
-
+    
+    <div>
+      <router-view />
+    </div>
+    
     <!-- contents -->
     <Contents />
+
   </div>
 </template>
 
