@@ -1,10 +1,11 @@
 <template>
   <!-- modal -->
-  <div v-for="(product, i) in products" :key="i">
+  <div v-for="(post, i) in posts" :key="i">
+    <!-- ! 이게 왜 되지?.. -->
     <div class="black-bg" v-if="is_open[i] == true">
       <div class="white-bg">
-        <h4>{{ products[i] }} 상세페이지</h4>
-        <p>상세 내용</p>
+        <h4>{{ posts[i].title }}</h4>
+        <p>{{ posts[i].content }}</p>
         <button class="close" @click="showModal(i)">닫기</button>
       </div>
     </div>
@@ -16,16 +17,15 @@
   </div>
 
   <!-- contents -->
-  <div v-for="(product, i) in products" :key="i" @click="showModal(i)" style="cursor: pointer">
-    <img alt="원룸이미지" :src="require(`@/assets/images/room${i}.jpg`)" class="room-img" />
-    <h4 class="red" :style="style1">{{ products[i] }}</h4>
-    <h4>{{ prices[i] }} 만원</h4>
-    <button @click="increase(i)">허위매물신고</button>
-    <span> 신고 수:{{count[i]}}</span>
+  <div v-for="(post, i) in posts" :key="i" @click="showModal(i)" style="cursor: pointer">
+    <img alt="원룸이미지" :src="posts[i].image" class="room-img" />
+    <h4 class="red" :style="style1">{{ posts[i].title }}</h4>
+    <h4>{{ posts[i].price.toLocaleString('ko-KR') }} 원</h4>
   </div>
 </template>
 
 <script>
+import posts from './assets/data.js'
 
 export default {
   name: 'App',
@@ -35,10 +35,8 @@ export default {
       // 데이터 입력 (state)
       style1: 'color: blue',
       navmenu: ['Home', 'Products', 'About'],
-      products: ['역삼동원룸', '천호동원룸', '도곡동원룸'],
-      prices: [50, 60, 80],
-      count: [0, 0, 0],
-      is_open: [false, false, false],
+      is_open: [false],
+      posts: posts,
     }
   },
   components: {
