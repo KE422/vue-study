@@ -24,6 +24,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     name: 'LoginComponent',
     data() {
@@ -39,8 +41,17 @@ export default {
         handleChangePW(e) {
             this.pw = e.target.value;
         },
+        // TODO login post axios 해보기
         login() {
             console.log('id :' , this.id, 'pw : ', this.pw);
+            axios
+            .get('POST', `https://reqres.in/api/login`)
+            .then(res => {
+                console.log(res);
+            })
+            .catch(err => {
+                console.log(err);
+            })
         }
     }
 }
