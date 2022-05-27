@@ -1,6 +1,6 @@
 <template>
   <div id="about">
-      This is About page.
+      Here I tested axios get request with dummy json data.
       <div class="detail" v-for="(photo, i) in photos" :key="photo.id">
         <Photo :photo="photos[i]"/>
       </div>
@@ -20,7 +20,7 @@ import axios from 'axios'
         fetchPhotos() {
           axios.get('https://jsonplaceholder.typicode.com/photos?albumId=1')
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 this.photos = res.data;
             })
             .catch(err => {

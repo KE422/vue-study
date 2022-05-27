@@ -1,20 +1,30 @@
 <template>
   <div id="detail">
-      <h4>{{ pId }}</h4>
+      This is Detail Page of product #{{ id }}
+    <h4 id="title">{{ post?.title }}</h4>
+    <h5 id="content">{{ post?.content }}</h5>
   </div>
 </template>
 
 <script>
+
 export default {
     name: 'DetailPage',
     computed: {
-        pId() {
+        id() {
             return this.$route.params.id;
+        },
+        post() {
+            if (this.$route.params.post)
+             return JSON.parse(this.$route.params.post);
+            return null;
         }
     },
 }
 </script>
 
 <style>
-
+    #detail {
+        padding: 20px 0;
+    }
 </style>

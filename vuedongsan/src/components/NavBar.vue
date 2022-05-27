@@ -1,25 +1,24 @@
 <template>
     <div class="menu">
         <div class="title" @click="gotoMain">
-            Real-Estate
+            Vue.js Study
         </div>
         <div class="btn">
             <router-link
                 v-for="(menu, i) in navmenu" :key="i"
-                :to="{ path: `/${menu.toLocaleLowerCase()}` }"
+                :to="{ path: `/${menu.toLocaleLowerCase()}`}"
                 >{{ menu }}</router-link>
         </div>
     </div>
 </template>
 
 <script>
-// import router from 'vue-router'
 
 export default {
     name: 'NavBar',
     data() {
         return {
-            navmenu: ['Home', 'About', 'Product'],
+            navmenu: ['Home','About','Product'],
         }
     },
     methods: {
@@ -32,7 +31,7 @@ export default {
 
 <style>
     .menu {
-        background: darkslateblue;
+        background: pink;
         padding: 15px 20px;
         display: flex;
         flex-direction: row;
@@ -48,15 +47,17 @@ export default {
     }
 
     .title:hover {
-        text-decoration: underline;
+        color: palevioletred;
     }
 
     .menu a {
         margin-left: 20px;
         color: white;
         cursor: pointer;
+        text-decoration: none;
     }
     .menu a:hover {
-        text-decoration: underline;
+        background: white;
+        color: magenta;
     }
 </style>

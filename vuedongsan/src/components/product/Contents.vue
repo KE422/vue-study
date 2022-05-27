@@ -22,7 +22,8 @@ export default {
     props: [ 'posts' ],
     methods: {
       viewDetails(id) {
-        this.$router.push({ path: `/product/${id}` });
+        const post = this.posts[id];
+        this.$router.push({ name: 'Product-Detail', params: { id, post:JSON.stringify(post)} });
       }
     }
 }
