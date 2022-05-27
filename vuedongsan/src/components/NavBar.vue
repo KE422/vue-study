@@ -4,10 +4,10 @@
             Real-Estate
         </div>
         <div class="btn">
-            <a router :to="`/${menu.toLocaleLowerCase()}`"
-                @click="consoles(menu.toLocaleLowerCase())"
+            <router-link
                 v-for="(menu, i) in navmenu" :key="i"
-                >{{ menu }}</a>
+                :to="{ path: menu.toLocaleLowerCase() }"
+                >{{ menu }}</router-link>
         </div>
     </div>
 </template>
@@ -20,11 +20,6 @@ export default {
             navmenu: ['Home', 'About', 'Product'],
         }
     },
-    methods: {
-        consoles(msg) {
-            console.log(msg);
-        }
-    }
 }
 </script>
 
