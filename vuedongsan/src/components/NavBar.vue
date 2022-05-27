@@ -1,6 +1,6 @@
 <template>
     <div class="menu">
-        <div class="title">
+        <div class="title" @click="gotoMain">
             Real-Estate
         </div>
         <div class="btn">
@@ -13,6 +13,8 @@
 </template>
 
 <script>
+// import router from 'vue-router'
+
 export default {
     name: 'NavBar',
     data() {
@@ -20,6 +22,11 @@ export default {
             navmenu: ['Home', 'About', 'Product'],
         }
     },
+    methods: {
+        gotoMain() {
+            this.$router.push({path: '/'});
+        }
+    }
 }
 </script>
 
@@ -38,6 +45,11 @@ export default {
         color: white;
         font-size: 22px;
         font-weight: 600;
+        cursor: pointer;
+    }
+
+    .title:hover {
+        text-decoration: underline;
     }
 
     .menu a {

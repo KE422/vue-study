@@ -11,20 +11,23 @@
 </template>
 
 <script>
-import posts from '@/assets/data.js'
 
 export default {
     name: 'RoomContent',
     data() {
         return {
             blue: 'color: blue',
-            posts: posts,
         }
     },
+    props: [ 'posts' ],
     methods: {
       viewDetails(id) {
         // TODO view detail page
         console.log(id);
+        this.$router.push({ path: '/product',
+        params: {
+          id,
+        } });
       }
     }
 }

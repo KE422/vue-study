@@ -1,20 +1,16 @@
 import { createWebHistory, createRouter } from 'vue-router'
 import Home from '../pages/Home.vue'
 
-const About = () => {
-    return import("../pages/About.vue");
-}
+const About = () => import("../pages/About.vue");
 
-const Product = () => {
-    return import("../pages/Product.vue");
-}
+const Product = () => import("../pages/Product.vue");
+
+const Detail = () => import("../components/product/Detail.vue");
 
 const routes = [
     {
         path: '/',
         redirect: '/home',
-        name: 'Home',
-        component: Home,
     },
     {
         path: '/home',
@@ -30,6 +26,13 @@ const routes = [
         path: '/product',
         name: 'Product',
         component: Product,
+        children: [
+            {
+                path: ':id',
+                component: Detail,
+                props: true,
+            },
+        ]
     }
 ]
 
