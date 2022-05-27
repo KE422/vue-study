@@ -34,7 +34,6 @@ export default {
     .menu {
         background: darkslateblue;
         padding: 15px 20px;
-        border-radius: 10px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
