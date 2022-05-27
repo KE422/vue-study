@@ -22,8 +22,6 @@ export default {
     props: [ 'posts' ],
     methods: {
       viewDetails(id) {
-        // TODO view detail page
-        console.log(id);
         this.$router.push({ path: `/product/${id}` });
       }
     }
