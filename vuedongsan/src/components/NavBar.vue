@@ -6,7 +6,7 @@
         <div class="btn">
             <router-link
                 v-for="(menu, i) in navmenu" :key="i"
-                :to="{ path: menu.toLocaleLowerCase() }"
+                :to="{ path: `/${menu.toLocaleLowerCase()}` }"
                 >{{ menu }}</router-link>
         </div>
     </div>
