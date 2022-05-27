@@ -24,10 +24,7 @@ export default {
       viewDetails(id) {
         // TODO view detail page
         console.log(id);
-        this.$router.push({ path: '/product',
-        params: {
-          id,
-        } });
+        this.$router.push({ path: `/product/${id}` });
       }
     }
 }
