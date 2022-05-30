@@ -1,16 +1,35 @@
 <template>
   <div id="home">
-      <Login />
+      <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Login from '@/components/home/Login.vue'
 
 export default {
   name: 'HomePage',
-  components: {
-    Login,
+  data() {
+    return {
+      isLogined: localStorage.getItem('lg') === null ? false : true,
+    }
+  },
+  created() {
+    console.log('is logined?', this.isLogined);
+    this.checkAuth();
+  },
+  methods: {
+    checkAuth() {
+      if (this.isLogined) {
+        this.$router.push({ name: 'Welcome' });
+      }
+      else {
+        this.$router.push({ name: 'Login' });
+      }
+    }
+  },
+  updated() {
+    this.checkAuth();
+    this.$router.go();
   },
 }
 </script>

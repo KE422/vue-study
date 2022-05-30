@@ -5,7 +5,7 @@
         <span>아이디</span>
         <input class="id"
                 type="text"
-                placeholder="ID를 입력해주세요."
+                placeholder="이메일을 입력해주세요."
                 :value="id"
                 @change="handleChangeID($event)"
                 />
@@ -41,16 +41,21 @@ export default {
         handleChangePW(e) {
             this.pw = e.target.value;
         },
-        // TODO login post axios 해보기
         login() {
             console.log('id :' , this.id, 'pw : ', this.pw);
             axios
-            .get('POST', `https://reqres.in/api/login`)
+            .post(`https://reqres.in/api/login`, {
+                email: this.id,
+                password: this.pw
+            })
             .then(res => {
                 console.log(res);
+                localStorage.setItem('lg', this.id);
+                this.$router.push({ name: 'Welcome', params: { user: this.id } })
             })
             .catch(err => {
                 console.log(err);
+                alert(err.message);
             })
         }
     }
