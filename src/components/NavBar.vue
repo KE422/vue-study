@@ -18,7 +18,7 @@ export default {
     name: 'NavBar',
     data() {
         return {
-            navmenu: ['Home','About','Product'],
+            navmenu: ['Home','About','Product', 'Video'],
         }
     },
     methods: {

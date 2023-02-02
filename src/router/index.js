@@ -1,6 +1,7 @@
 import { createWebHistory, createRouter } from 'vue-router'
 import Home from '../pages/Home.vue'
 
+const Video = () => import("../pages/Video.vue");
 const About = () => import("../pages/About.vue");
 const Product = () => import("../pages/Product.vue");
 const Detail = () => import("../components/product/Detail.vue");
@@ -41,6 +42,11 @@ const routes = [
         name: 'Product-Detail',
         component: Detail,
         props: { post: false },
+    },
+    {
+        path: '/video',
+        name: 'Video',
+        component: Video,
     }
 ]
 
